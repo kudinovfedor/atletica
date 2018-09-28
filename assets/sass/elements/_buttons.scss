@@ -31,18 +31,21 @@ button {
     @extend %button-style;
     padding: 16px 60px;
     font-size: 20px;
+    border-radius: 25px;
 }
 
 .button-medium {
     @extend %button-style;
     padding: 14px 25px;
     font-size: 16px;
+    border-radius: 20px;
 }
 
 .button-small {
     @extend %button-style;
     padding: 10px 15px;
     font-size: 14px;
+    border-radius: 16px;
 }
 
 .button-inverse {
@@ -91,7 +94,7 @@ button {
     }
 
     .button-medium {
-        padding: 10px 25px;
+        padding: 10px 20px;
         font-size: 11px;
     }
 
@@ -108,7 +111,7 @@ button {
     }
 
     .button-medium {
-        padding: 11px 28px;
+        padding: 10px 25px;
         font-size: 12px;
     }
 
@@ -125,7 +128,7 @@ button {
     }
 
     .button-medium {
-        padding: 12px 32px;
+        padding: 10px 25px;
         font-size: 14px;
     }
 
@@ -137,12 +140,12 @@ button {
 
 @media #{$screen} {
     .button-large {
-        padding: 15px 65px;
+        padding: 14px 65px;
         font-size: 18px;
     }
 
     .button-medium {
-        padding: 13px 35px;
+        padding: 10px 25px;
         font-size: 15px;
     }
 

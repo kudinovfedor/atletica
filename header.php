@@ -17,61 +17,136 @@
 <?php wp_body(); ?>
 
 <div class="wrapper">
-    <?php /*
-    <div class="pre-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                    <nav class="second-menu">
-                        <?php wp_nav_menu(array(
-                            'theme_location' => 'second-menu',
-                            'container' => false,
-                            'menu_class' => 'menu-container',
-                            'menu_id' => '',
-                            'fallback_cb' => 'wp_page_menu',
-                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                            'depth' => 2
-                        )); ?>
-                    </nav>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                    Some info here
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                    Some info here
+    <header class="header">
+        <div class="header-before">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 header-work">
+                        <i class="fa fa-clock" aria-hidden="true"></i>
+                        вс-чт: 11.00-20.00б пт: 11.00-17.00 сб-выходной
+                    </div>
+                    <div class="col-lg-7 text-right">
+                        <div class="row">
+                            <?php if (has_social()) { ?>
+                                <div class="col-sm-3 col-md-4 header-social">
+                                    <ul class="social">
+                                        <?php foreach (get_social() as $social) { ?>
+                                            <li class="social-item">
+                                                <a href="<?php echo esc_attr(esc_url($social['url'])); ?>"
+                                                   class="social-link"
+                                                   target="_blank">
+                                                    <i class="<?php echo esc_attr($social['icon']); ?>"
+                                                       aria-hidden="true"
+                                                       aria-label="<?php echo esc_attr($social['text']); ?>"></i>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+                            <?php } ?>
+                            <?php if (has_phones()) { ?>
+                                <div class="col-xs-6 col-sm-5 col-md-4 header-phone">
+                                    <ul class="phone">
+                                        <?php
+                                        $phones = get_phones();
+                                        foreach ($phones as $index => $phone) { ?>
+                                            <?php if ($index === 0) { ?>
+                                                <li class="phone-item">
+                                                    <a href="tel:<?php echo esc_attr(get_phone_number($phone)); ?>"
+                                                       class="phone-number">
+                                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                                        <?php echo esc_html($phone); ?>
+                                                    </a>
+                                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                    <ul class="sub-phone">
+                                                        <?php foreach ($phones as $key => $sub_phone) { ?>
+                                                            <?php if ($key !== 0) { ?>
+                                                                <li class="phone-item">
+                                                                    <a href="tel:<?php echo esc_attr(get_phone_number($phone)); ?>"
+                                                                       class="phone-number">
+                                                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                                                        <?php echo esc_html($phone); ?>
+                                                                    </a>
+                                                                </li>
+                                                            <?php } ?>
+                                                            <?php continue; ?>
+                                                        <?php } ?>
+                                                    </ul>
+                                                </li>
+                                            <?php } ?>
+                                            <?php continue; ?>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+                            <?php } ?>
+                            <div class="col-xs-6 col-sm-4 header-callback">
+                                <button type="button"
+                                        class="button-medium button-block text-uppercase <?php the_lang_class('js-callback'); ?>">
+                                    <?php _e('Call back', 'brainworks'); ?>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    */ ?>
-
-    <header class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
-
+        <div class="header-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-12 col-lg-2 header-logo">
+                        <div class="logo"><?php fk_logo(true); ?></div>
+                    </div>
+                    <?php if (has_nav_menu('main-nav')) { ?>
+                        <div class="col-md-11 col-lg-9 header-nav">
+                            <nav class="nav js-menu">
+                                <button type="button" tabindex="0"
+                                        class="menu-item-close menu-close js-menu-close"></button>
+                                <?php wp_nav_menu(array(
+                                    'theme_location' => 'main-nav',
+                                    'container' => false,
+                                    'menu_class' => 'menu-container',
+                                    'menu_id' => '',
+                                    'fallback_cb' => 'wp_page_menu',
+                                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                    'depth' => 3
+                                )); ?>
+                            </nav>
+                        </div>
+                    <?php } ?>
+                    <div class="col-xs-6 col-sm-12 col-md-1 col-lg-1 header-basket">
+                        <a class="basket" href="#">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                            <span class="basket-count">0</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                    <?php get_search_form(); ?>
+            </div>
+        </div>
+        <div class="header-after">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 header-catalog text-uppercase">
+                        <svg class="svg-icon" width="21" height="14" fill="#fff">
+                            <use xlink:href="#bars"></use>
+                        </svg>
+                        Категории товаров
+                    </div>
+                    <div class="col-md-8 col-lg-9 header-search"><?php get_search_form(); ?></div>
                 </div>
             </div>
         </div>
     </header>
 
-    <?php if (has_nav_menu('main-nav')) { ?>
-        <nav class="nav js-menu">
-            <button type="button" tabindex="0" class="menu-item-close menu-close js-menu-close"></button>
-            <?php wp_nav_menu(array(
-                'theme_location' => 'main-nav',
-                'container' => false,
-                'menu_class' => 'menu-container',
-                'menu_id' => '',
-                'fallback_cb' => 'wp_page_menu',
-                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                'depth' => 3
-            )); ?>
-        </nav>
-    <?php } ?>
+    <?php /*
+    <svg class="svg-icon" width="21" height="23" fill="none" stroke="#1980ED" stroke-width="1.5"
+         stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+        <use xlink:href="#skiing"></use>
+    </svg>
+    <svg class="svg-icon" width="24" height="23" fill="none" stroke="#1980ED" stroke-width="1.5"
+         stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+        <use xlink:href="#backpack"></use>
+    </svg>
+    */ ?>
 
     <div class="page-wrapper container">
 
@@ -81,7 +156,7 @@
                 <span class="hamburger-inner"></span>
             </span>
             </button>
-            <div class="logo"><?php get_default_logo_link(); ?></div>
+            <div class="logo"><?php fk_logo(true, '#fff'); ?></div>
         </div>
 
         <?php /*

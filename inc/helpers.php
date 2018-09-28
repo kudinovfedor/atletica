@@ -380,6 +380,28 @@ if (!function_exists('get_default_logo_link')) {
     }
 }
 
+if (!function_exists('fk_logo')) {
+    function fk_logo($svg = true, $color = '#303030')
+    {
+        if (has_custom_logo()) {
+            the_custom_logo();
+        } else {
+            if ($svg) {
+                $logo = '<svg class="logo-img svg-icon" width="121" height="24" fill="' . $color . '"><use xlink:href="#logo"></use></svg>';
+            } else {
+                $file = get_template_directory_uri() . '/assets/img/logo.png';
+                $logo = sprintf('<img class="logo-img" src="%s" alt="%s">', esc_url($file), get_bloginfo('name'));
+            }
+
+            $link = sprintf('<a class="logo-link" href="%s">%s</a>', esc_url(home_url('/')), $logo);
+            $span = sprintf('<span class="logo-link">%s</span>', $logo);
+            $html = is_front_page() ? $span : $link;
+
+            echo $html;
+        }
+    }
+}
+
 if (!function_exists('get_background_login_page')) {
     /**
      * Get Background style for Login Page

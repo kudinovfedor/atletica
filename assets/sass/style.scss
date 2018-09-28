@@ -37,8 +37,8 @@ Tags: one-column, two-columns, full-width-template, e-commerce
 @import "elements/responsive-titles";
 @import "elements/scroll-top";
 @import "elements/forms";
-//@import "elements/buttons";
-@import "elements/buttons-2";
+@import "elements/buttons";
+//@import "elements/buttons-2";
 //@import "elements/images";
 @import "elements/links";
 @import "elements/pagination";
@@ -99,7 +99,7 @@ body {
     min-height: 100%;
 
     @media #{$mobile} {
-        padding-top: 80px;
+        padding-top: 55px;
     }
 }
 
@@ -113,6 +113,10 @@ img {
     vertical-align: middle;
     max-width: 100%;
     height: auto;
+}
+
+:focus {
+    outline: 0;
 }
 
 .svg-icon {
@@ -163,4 +167,68 @@ img {
 
 .is-hide {
     display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+    .header {
+        &-before,
+        &-social,
+        &-phone,
+        &-callback {
+            text-align: center;
+        }
+
+        &-main {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        &-logo {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        &-catalog {
+            display: none;
+        }
+
+        &-search {
+            .form-control {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 544px) {
+    .header {
+        &-logo {
+            text-align: left;
+            margin-bottom: 0;
+            padding-top: 5px;
+        }
+
+        &-basket {
+            text-align: right;
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .header {
+        &-phone,
+        &-callback {
+            width: 100%;
+        }
+
+        &-phone {
+            .phone {
+                margin: 0;
+                padding: 5px 0;
+            }
+        }
+    }
 }

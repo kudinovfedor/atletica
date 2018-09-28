@@ -41,11 +41,11 @@ gulp.task('sass', () => {
         .pipe(plumber())
         // .pipe(sourcemaps.init())
         .pipe(sass({
-            outputStyle: 'nested', // nested, expanded, compact, compressed
+            outputStyle: 'compact', // nested, expanded, compact, compressed
             precision: 5,
             includePaths: ['assets/sass'],
             indentType: 'space',
-            indentWidth: 4,
+            indentWidth: 2,
             linefeed: 'crlf',
             sourceComments: false,
         }).on('error', sass.logError))
