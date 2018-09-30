@@ -2855,6 +2855,8 @@ table td[class*="col-"], table th[class*="col-"] { position: static; float: none
 /* PAGES */
 ol.commentlist .comment-body { margin-bottom: 25px; }
 
+.comment-edit-link, .comment-reply-link { padding: 0 5px; }
+
 #respond p { text-align: left; }
 
 .advert-item { margin-bottom: 20px; }
@@ -2996,6 +2998,8 @@ form fieldset [type="submit"] { cursor: pointer; display: inline-block; vertical
 
 form fieldset [type="submit"].fa { font-family: 'Font Awesome 5 Pro'; }
 
+form fieldset [type="submit"] .fa, form fieldset [type="submit"] .fa:hover { color: inherit; }
+
 form fieldset [type="submit"]:hover { color: #fff; background-color: #0f67c4; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
 form fieldset [type="submit"]:active { background-color: #1980ed; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
@@ -3023,6 +3027,8 @@ form fieldset textarea { width: 100%; margin-bottom: 30px; }
 .button-style, .button-large, .button-medium, .button-small, .button-inverse, [type="submit"] { cursor: pointer; display: inline-block; vertical-align: middle; border: 0; border-radius: 4px; background-color: #1980ed; color: #fff; text-transform: none; text-align: center; font-family: inherit; font-weight: normal; -moz-transition: 0.2s; -o-transition: 0.2s; -webkit-transition: 0.2s; transition: 0.2s; }
 
 .fa.button-style, .fa.button-large, .fa.button-medium, .fa.button-small, .fa.button-inverse, .fa[type="submit"] { font-family: 'Font Awesome 5 Pro'; }
+
+.button-style .fa, .button-large .fa, .button-medium .fa, .button-small .fa, .button-inverse .fa, [type="submit"] .fa, .button-style .fa:hover, .button-large .fa:hover, .button-medium .fa:hover, .button-small .fa:hover, .button-inverse .fa:hover, [type="submit"] .fa:hover { color: inherit; }
 
 .button-style:hover, .button-large:hover, .button-medium:hover, .button-small:hover, .button-inverse:hover, :hover[type="submit"] { color: #fff; background-color: #0f67c4; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
@@ -3339,13 +3345,13 @@ hr.style-four { height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgb
 
 .header-phone .phone > .phone-item > .fa { color: #fff; font-size: 12px; position: absolute; top: 40%; right: 15px; font-weight: normal; }
 
-.header-phone .phone:hover { background-color: #fff; }
+.header-phone .phone:hover { background-color: #fff; box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1); }
 
 .header-phone .phone:hover .phone-number { color: #333; }
 
 .header-phone .phone:hover .phone-number:hover { color: #1980ed; }
 
-.header-phone .phone:hover .sub-phone { display: block; }
+.header-phone .phone:hover .sub-phone { display: block; box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1); }
 
 .header-catalog { padding: 21px 20px; color: #fff; font-size: 13px; line-height: 1.4; letter-spacing: 0.39px; background-color: #1980ed; }
 

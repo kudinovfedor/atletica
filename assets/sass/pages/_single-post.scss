@@ -5,6 +5,15 @@ ol.commentlist {
     }
 }
 
+.comment {
+    &-edit,
+    &-reply {
+        &-link {
+            padding: 0 5px;
+        }
+    }
+}
+
 #respond {
     p {
         text-align: left;

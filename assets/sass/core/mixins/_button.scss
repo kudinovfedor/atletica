@@ -17,6 +17,13 @@
         font-family: 'Font Awesome 5 Pro';
     }
 
+    .fa {
+        &,
+        &:hover {
+            color: inherit;
+        }
+    }
+
     &:hover {
         color: $buttonFontColorActive;
         background-color: $buttonBgColorActive;
