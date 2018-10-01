@@ -62,10 +62,10 @@
                                                         <?php foreach ($phones as $key => $sub_phone) { ?>
                                                             <?php if ($key !== 0) { ?>
                                                                 <li class="phone-item">
-                                                                    <a href="tel:<?php echo esc_attr(get_phone_number($phone)); ?>"
+                                                                    <a href="tel:<?php echo esc_attr(get_phone_number($sub_phone)); ?>"
                                                                        class="phone-number">
                                                                         <i class="fa fa-phone" aria-hidden="true"></i>
-                                                                        <?php echo esc_html($phone); ?>
+                                                                        <?php echo esc_html($sub_phone); ?>
                                                                     </a>
                                                                 </li>
                                                             <?php } ?>
